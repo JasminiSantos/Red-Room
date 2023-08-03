@@ -1,5 +1,5 @@
 //
-//  FourthScene2.swift
+//  ThirdScene..swift
 //  Nano 1
 //
 //  Created by Jasmini Rebecca Gomes dos Santos on 26/07/23.
@@ -11,11 +11,9 @@ class ThirdScene2: SceneModel {
     weak var gameManager: GameManager?
     
     var message: SKSpriteNode!
-    
     var recorder: SKSpriteNode!
-    
+    var selectedSoundType: SoundType = .reverse1
     var messageDisplayTime: TimeInterval = 5.0
-    
     var i = 1;
     
     override func didMove(to view: SKView) {
@@ -34,13 +32,16 @@ class ThirdScene2: SceneModel {
         {
             if name == "Recorder" {
                 i = 1
+                removeLeftArrow()
+                removeRightArrow()
                 setupMessage()
+                gameManager?.lowerVolume(for: .background, by: 0.6)
             }
             else if name == "RightArrow" {
-                gameManager?.goToScene(.scene3)
+                gameManager?.goToScene(.scene4)
             }
             else if name == "LeftArrow" {
-                gameManager?.goToScene(.scene1)
+                gameManager?.goToScene(.scene2)
             }
         }
 
@@ -70,11 +71,33 @@ class ThirdScene2: SceneModel {
         
         self.addChild(message)
         
+        switch i {
+        case 1:
+            selectedSoundType = .reverse1
+        case 2:
+            selectedSoundType = .reverse2
+        case 3:
+            selectedSoundType = .reverse3
+        case 4:
+            selectedSoundType = .reverse4
+        case 5:
+            selectedSoundType = .reverse5
+        default:
+            selectedSoundType = .reverse1
+        }
+        gameManager?.playSound(selectedSoundType)
+        messageDisplayTime = gameManager?.getAudioDuration(for: selectedSoundType) ?? 0
+        
         Timer.scheduledTimer(withTimeInterval: messageDisplayTime, repeats: false) { [weak self] _ in
             self?.hideMessage()
             self?.i += 1
-            if self!.i <= 3 {
+            if self!.i < 6 {
                 self?.setupMessage()
+            }
+            else {
+                self?.gameManager?.resetVolume(for: .background)
+                self?.setupLeftArrow()
+                self?.setupRightArrow()
             }
         }
     }
