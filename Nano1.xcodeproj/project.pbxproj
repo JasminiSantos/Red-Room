@@ -85,7 +85,7 @@
 		841600452A709F620022E722 = {
 			isa = PBXGroup;
 			children = (
-				841600502A709F620022E722 /* Nano 1 */,
+				841600502A709F620022E722 /* Nano1 */,
 				8416004F2A709F620022E722 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		841600502A709F620022E722 /* Nano 1 */ = {
+		841600502A709F620022E722 /* Nano1 */ = {
 			isa = PBXGroup;
 			children = (
 				841600512A709F620022E722 /* MyApp.swift */,
@@ -115,7 +115,7 @@
 				841600552A709F630022E722 /* Assets.xcassets */,
 				841600572A709F630022E722 /* Preview Content */,
 			);
-			path = "Nano 1";
+			path = Nano1;
 			sourceTree = "<group>";
 		};
 		841600572A709F630022E722 /* Preview Content */ = {
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 841600492A709F620022E722 /* Build configuration list for PBXProject "Nano 1" */;
+			buildConfigurationList = 841600492A709F620022E722 /* Build configuration list for PBXProject "Nano1" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -420,7 +420,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		841600492A709F620022E722 /* Build configuration list for PBXProject "Nano 1" */ = {
+		841600492A709F620022E722 /* Build configuration list for PBXProject "Nano1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8416005A2A709F630022E722 /* Debug */,
